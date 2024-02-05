@@ -1,70 +1,94 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<div align="center">
+  <br/>
+  <h1><b> Product Management Application</b></h1>
+  <h4>This Product Management Application is a full-stack application that allows users to perform CRUD (Create, Read, Update, Delete) operations on products. The backend is built with ASP.NET Core, providing RESTful APIs, and the frontend is developed using React with Redux for state management. This guide will walk you through the steps to set up both the frontend and backend parts of the application.
+.
+<a name="readme-top"></a>
+</h4>
 
-### `npm start`
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Prerequisites
+Before you begin, ensure you have the following installed on your system:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+.NET 6.0 SDK or later
+Node.js (which includes npm)
+Visual Studio Code or any preferred IDE for development
+SQL Server (Optional, if you plan to use a different database, ensure you have it installed and configured)
+Backend Setup
+Clone the Repository
+https://github.com/karanJ2212/crud-react-dotnet-backend.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start by cloning the repository containing the backend code to your local machine.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+bash
 
-### `npm run eject`
+git clone <https://github.com/karanJ2212/crud-react-dotnet-backend.git>
+cd <crud-react-dotnet-backend>
+Database Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Ensure SQL Server is running.
+Update the connection string in appsettings.json to match your SQL Server configuration.
+Restore Dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate to the backend project directory and restore the NuGet packages.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+bash
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+dotnet restore
+Run Migrations
 
-## Learn More
+Apply the Entity Framework migrations to create the database schema.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+bash
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+dotnet ef database update
+Start the Application
 
-### Code Splitting
+Run the backend application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+bash
 
-### Analyzing the Bundle Size
+dotnet run
+The API will be hosted at https://localhost:7065/ by default.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Frontend Setup
+Clone the Frontend Repository
 
-### Making a Progressive Web App
+If the frontend code is in a separate repository, clone it to your local machine. Otherwise, navigate to the frontend directory if it's part of a monorepo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+bash
 
-### Advanced Configuration
+git clone <https://github.com/karanJ2212/crud_react_dotnet.git>
+cd <crud_react_dotnet>
+Install Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Install the required npm packages.
 
-### Deployment
+bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+npm install
+Configure API Endpoint
 
-### `npm run build` fails to minify
+Ensure the API base URL in the frontend application matches the backend's URL. This is typically set in a configuration file or within the services that make API calls.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Run the Frontend Application
+
+Start the React application.
+
+bash
+npm start
+By default, the frontend will be available at http://localhost:3000/.
+
+Usage
+With both the frontend and backend running, you can navigate to http://localhost:3000/ in your web browser to use the application. From there, you can add, view, update, and delete products using the web interface.
+
+Support
+If you encounter any issues or have questions regarding the setup process, please refer to the respective documentation for each technology or framework used. You may also raise an issue in the repository for specific problems related to this application.
